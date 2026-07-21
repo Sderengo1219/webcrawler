@@ -1,4 +1,4 @@
-# Python-generated files
+#git push -u origin main Python-generated files
 __pycache__/
 *.py[oc]
 build/
@@ -8,3 +8,7 @@ wheels/
 
 # Virtual environments
 .venv
+venv/
+
+# Local config / secrets
+.env
