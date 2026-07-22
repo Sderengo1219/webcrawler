@@ -1,22 +1,25 @@
-from crawl import normalize_url, get_heading_from_html, get_first_paragraph_from_html
-
-
-test_soup = '''
-<html>
-  <body>
-    <h1>Welcome to Boot.dev</h1>
-    <main>
-      <p>Learn to code by building real projects.</p>
-      <p>This is the second paragraph.</p>
-    </main>
-  </body>
-</html>'''
+import sys
+from crawl import (
+    normalize_url, 
+    get_heading_from_html, 
+    get_first_paragraph_from_html,
+    get_urls_from_html,
+    get_images_from_html,
+    extract_page_data,
+    get_html
+)
 
 def main():
-    print("Hello from webcrawler!")
-    print(get_heading_from_html(test_soup))
+    if len(sys.argv) < 2:
+        print("no website provided")
+        sys.exit(1)
 
+    if len(sys.argv) > 2:
+        print("too many arguments provided")
+        sys.exit(1)
 
+    print(f"starting crawl of: {sys.argv[1]}")
+    print(get_html(sys.argv[1]))
 
 if __name__ == "__main__":
     main()
